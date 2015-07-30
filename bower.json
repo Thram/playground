@@ -5,7 +5,7 @@
   "authors": [
     "thram <thramposo@gmail.com>"
   ],
-  "description": "Simple CSS Framework",
+  "description": "Just me having fun with SCSS :D",
   "main": [
     "dist/playground.css",
     "dist/playground.min.gz.css"
