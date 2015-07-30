@@ -36,7 +36,7 @@ gulp.task('compass', function () {
         .pipe(gulp.dest('dist'))
         .pipe(rename('playground.min.css'))
         .pipe(minifyCSS())
-        .pipe(gzip({preExtension: 'gz'}))
+        .pipe(gzip({append:false}))
         .pipe(gulp.dest('dist'));
 });
 

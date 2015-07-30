@@ -8,7 +8,7 @@
   "description": "Just me having fun with SCSS :D",
   "main": [
     "dist/playground.css",
-    "dist/playground.min.gz.css"
+    "dist/playground.min.css"
   ],
   "keywords": [
     "playground"
