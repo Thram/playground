@@ -1,5 +1,5 @@
-@import "modules/variables";
-@import "modules/mixins";
+@import "settings/variables";
+@import "settings/mixins";
 @import "modules/normalize";
 @import "modules/color";
 @import "modules/fonts";
@@ -9,3 +9,5 @@
 @import "modules/buttons";
 @import "modules/modals";
 @import "modules/spinnners";
+@import "modules/animations/magic";
+@import "modules/animations/custom";

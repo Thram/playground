@@ -31,12 +31,13 @@ gulp.task('compass', function () {
         .pipe(plumber(plumberErrorHandler))
         .pipe(compass({
             sass : 'src/',
-            image: 'src/images'
+            image: 'src/images',
+            debug: true
         }))
         .pipe(gulp.dest('dist'))
         .pipe(rename('playground.min.css'))
         .pipe(minifyCSS())
-        .pipe(gzip({append:false}))
+        .pipe(gzip({append: false}))
         .pipe(gulp.dest('dist'));
 });
 
