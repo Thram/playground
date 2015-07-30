@@ -3176,7 +3176,7 @@ label {
 /* @FONT-FACE loads font into browser */
 @font-face {
   font-family: "typicons";
-  src: url("../fonts/typicons.eot") format("eot"), url("../fonts/typicons.woff") format("woff"), url("../fonts/typicons.ttf") format("truetype"), url("../fonts/typicons.svg#typicons") format("svg");
+  src: url("fonts/typicons.eot") format("eot"), url("fonts/typicons.woff") format("woff"), url("fonts/typicons.ttf") format("truetype"), url("fonts/typicons.svg#typicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }

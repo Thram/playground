@@ -30,6 +30,7 @@ gulp.task('compass', function () {
     return gulp.src(['src/playground.scss'])
         .pipe(plumber(plumberErrorHandler))
         .pipe(compass({
+            css  : 'src/',
             sass : 'src/',
             image: 'src/images',
             debug: true
@@ -37,7 +38,8 @@ gulp.task('compass', function () {
         .pipe(gulp.dest('dist'))
         .pipe(rename('playground.min.css'))
         .pipe(minifyCSS())
-        .pipe(gzip({append: false}))
+        .pipe(gulp.dest('dist'))
+        .pipe(gzip())
         .pipe(gulp.dest('dist'));
 });
 
