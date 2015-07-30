@@ -1,8 +1,10 @@
 var gulp      = require('gulp'),
+    del       = require('del'),
+    path      = require('path'),
+    sync      = require('gulp-sync')(gulp),
     plumber   = require('gulp-plumber'),
     compass   = require('gulp-compass'),
     rename    = require('gulp-rename'),
-    path      = require('path'),
     notify    = require('gulp-notify'),
     gzip      = require('gulp-gzip'),
     minifyCSS = require('gulp-minify-css');
@@ -20,7 +22,11 @@ var plumberErrorHandler = {
     })
 };
 
-gulp.task('styles', function () {
+gulp.task('clean', function (cb) {
+    del(['dist/*'], cb);
+});
+
+gulp.task('compass', function () {
     return gulp.src(['src/playground.scss'])
         .pipe(plumber(plumberErrorHandler))
         .pipe(compass({
@@ -30,5 +36,13 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('dist'))
         .pipe(rename('playground.min.css'))
         .pipe(minifyCSS())
+        .pipe(gzip({preExtension: 'gz'}))
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('fonts', function () {
+    gulp.src('src/fonts/*')
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('styles', sync.sync(['clean', ['compass', 'fonts']]));
