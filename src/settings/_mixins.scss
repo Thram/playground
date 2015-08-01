@@ -398,41 +398,41 @@
 
 // Grid Sizes
 @mixin _grid-sizes($suffix, $wide) {
-  $preffix: "";
+  $prefix: "";
   $matrix-size: $grid-matrix-size-base;
 
   @if $wide {
-    $preffix: ".wide";
+    $prefix: ".wide";
     $matrix-size: $grid-matrix-size-wide;
   }
 
   @for $i from 1 through $matrix-size {
-    #{$preffix}.width#{$suffix}-#{$i} {
+    #{$prefix}.width#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $matrix-size);
       max-width: $percentage;
       opacity: 1;
     }
   }
 
-  #{$preffix}.width#{$suffix}-0 {
+  #{$prefix}.width#{$suffix}-0 {
     max-width: 0 !important;
     opacity: 0 !important;
   }
 
   @for $i from 1 through $grid-matrix-size-base {
-    #{$preffix}.height#{$suffix}-#{$i} {
+    #{$prefix}.height#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $grid-matrix-size-base);
       max-height: $percentage;
       opacity: 1;
     }
   }
 
-  #{$preffix}.height#{$suffix}-0 {
+  #{$prefix}.height#{$suffix}-0 {
     max-height: 0 !important;
     opacity: 0 !important;
   }
   @for $i from 1 through $matrix-size {
-    #{$preffix}.push-width#{$suffix}-#{$i} {
+    #{$prefix}.push-width#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $matrix-size);
       margin-left: $percentage;
       opacity: 1;
@@ -440,34 +440,34 @@
   }
 
   @for $i from 1 through $matrix-size {
-    #{$preffix}.pull-width#{$suffix}-#{$i} {
+    #{$prefix}.pull-width#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $matrix-size);
       margin-left: -$percentage;
       opacity: 1;
     }
   }
 
-  #{$preffix}.pull-width#{$suffix}-0, #{$preffix}.push-width#{$suffix}-0 {
+  #{$prefix}.pull-width#{$suffix}-0, #{$prefix}.push-width#{$suffix}-0 {
     max-width: 0 !important;
     opacity: 0 !important;
   }
 
   @for $i from 1 through $grid-matrix-size-base {
-    #{$preffix}.push-height#{$suffix}-#{$i} {
+    #{$prefix}.push-height#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $grid-matrix-size-base);
       margin-top: $percentage;
       opacity: 1;
     }
   }
   @for $i from 1 through $grid-matrix-size-base {
-    #{$preffix}.pull-height#{$suffix}-#{$i} {
+    #{$prefix}.pull-height#{$suffix}-#{$i} {
       $percentage: 100% * ($i / $grid-matrix-size-base);
       margin-top: -$percentage;
       opacity: 1;
     }
   }
 
-  #{$preffix}.pull-height#{$suffix}-0, #{$preffix}.push-height#{$suffix}-0 {
+  #{$prefix}.pull-height#{$suffix}-0, #{$prefix}.push-height#{$suffix}-0 {
     max-height: 0 !important;
     opacity: 0 !important;
   }
