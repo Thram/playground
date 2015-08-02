@@ -7,22 +7,30 @@
   font-style: normal;
 }
 
-i {
-  &:before {
-    font-family: $icons-font-name;
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    height: 1em;
-    font-size: 1em;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-    font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+ul.list li:before, ul.menu li:before, li.icon:before {
+  margin-right: 1em;
+}
+
+ul.horizontal {
+  &.list li:before, &.menu li:before, li.icon:before {
+    margin: 0 .5em;
   }
+}
+
+i:before, ul.list li:before, ul.menu li:before, li.icon:before {
+  font-family: $icons-font-name;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 $icons: (
@@ -366,6 +374,12 @@ $icons: (
 
 @each $class, $value in $icons {
   i.#{$class}:before {
-    content: $value; /* '' */
+    content: $value;
   }
+  ul.list.#{$class} li:not(.title):before,
+  ul.menu.#{$class} li:not(.title):before,
+  li.icon.#{$class}:before {
+    content: $value;
+  }
+
 }

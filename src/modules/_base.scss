@@ -111,19 +111,34 @@ hr {
 }
 
 ul {
-  li {
+  list-style: none;
+  padding: 0 1em;
+  &.menu li {
+    cursor: pointer;
+  }
+  &.list, &.menu {
+    &.horizontal {
+      li {
+        display: inline-block;
+        float: left;
+      }
+      li.title {
+        border: none;
+        margin: 0 10px;
+      }
+    }
+    li.title {
+      border-bottom-style: solid;
+    }
+    li {
+      padding: .5em 0;
+    }
   }
 }
 
 table {
-  tr {
-  }
-  thead {
-    th {
-    }
-  }
-  tbody {
-    td {
-    }
+  width: 100%;
+  th, td {
+    padding: 2px;
   }
 }

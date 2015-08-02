@@ -2,4 +2,16 @@ button, .btn {
   &.success {
     @include button(color("teal", "darken-1"), white);
   }
+  &.error {
+    @include button(color("red", "darken-1"), white);
+  }
+  &.warning {
+    @include button(color("amber", "darken-1"), white);
+  }
+  &.info {
+    @include button(color("blue", "darken-1"), white);
+  }
+  &.question {
+    @include button(color("cyan", "darken-1"), white);
+  }
 }

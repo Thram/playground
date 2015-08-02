@@ -358,6 +358,39 @@ $colors: (
       .#{$color_name}-text {
         color: $color_value !important;
       }
+      ul.list.#{$color_name}-text li, ul.menu.#{$color_name}-text li {
+        border-bottom: 1px dashed rgba($color_value, .3);
+      }
+      ul.menu.#{$color_name}-text li:not(.title):hover {
+        color: saturate($color_value, 10%);
+        background: rgba($color_value, .3);
+      }
+      ul.menu.#{$color_name}-text li:not(.title):active {
+        position: relative;
+        top: 1px;
+        color: saturate($color_value, 15%);
+        background: rgba($color_value, .5);
+        @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+      }
+      .#{$color_name}-text {
+        color: $color_value !important;
+      }
+      .table-#{$color_name} {
+        thead {
+          tr {
+            background-color: $color_value !important;
+          }
+        }
+        tbody {
+          tr:nth-child(odd) {
+            background-color: rgba($color_value, .3) !important;
+          }
+          tr:hover {
+            background-color: rgba($color_value, .5) !important;
+          }
+        }
+
+      }
     } @else {
       .#{$color_name}.#{$color_type} {
         background-color: $color_value !important;
@@ -365,6 +398,37 @@ $colors: (
       .#{$color_name}-text.text-#{$color_type} {
         color: $color_value !important;
       }
+      ul.list.#{$color_name}-text.text-#{$color_type} li, ul.menu.#{$color_name}-text.text-#{$color_type} li {
+        border-bottom: 1px dashed rgba($color_value, .3);
+      }
+      ul.menu.#{$color_name}-text.text-#{$color_type} li:not(.title):hover {
+        color: saturate($color_value, 10%);
+        background: rgba($color_value, .3);
+      }
+      ul.menu.#{$color_name}-text.text-#{$color_type} li:not(.title):active {
+        position: relative;
+        top: 1px;
+        color: saturate($color_value, 15%);
+        background: rgba($color_value, .5);
+        @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+      }
+      .table-#{$color_name}.table-#{$color_type} {
+        thead {
+          tr {
+            background-color: $color_value !important;
+          }
+        }
+        tbody {
+          tr:nth-child(odd) {
+            background-color: rgba($color_value, .3) !important;
+          }
+          tr:hover {
+            background-color: rgba($color_value, .5) !important;
+          }
+        }
+
+      }
+
     }
   }
 }
@@ -376,6 +440,37 @@ $colors: (
   }
   .#{$color}-text {
     color: $color_value !important;
+  }
+  ul.list.#{$color}-text li, ul.menu.#{$color}-text li {
+    border-bottom: 1px dashed rgba($color_value, .3);
+  }
+  ul.menu.#{$color}-text li:not(.title):hover {
+    color: saturate($color_value, 10%);
+    background: rgba($color_value, .3);
+  }
+  ul.menu.#{$color}-text li:not(.title):active {
+    position: relative;
+    top: 1px;
+    color: saturate($color_value, 15%);
+    background: rgba($color_value, .5);
+    @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+  }
+
+  .table-#{$color} {
+    thead {
+      tr {
+        background-color: $color_value !important;
+      }
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: rgba($color_value, .3) !important;
+      }
+      tr:hover {
+        background-color: rgba($color_value, .5) !important;
+      }
+    }
+
   }
 }
 
