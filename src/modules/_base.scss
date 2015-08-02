@@ -91,6 +91,25 @@ hr {
   }
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: none;
+  opacity: .5;
+  z-index: $grid-matrix-size-wide + 1;
+}
+
+.overlay-on {
+  overflow: hidden;
+  .overlay {
+    display: block;
+  }
+}
+
 ul {
   li {
   }

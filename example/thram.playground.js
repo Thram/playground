@@ -13,6 +13,7 @@
                 _isOpen           = options.open || false,
                 _triggerEl        = options.trigger || $t('.handle'),
                 _drawerSize       = '',
+                _body             = $t('body'),
                 _container        = $t('.container'),
                 _containerClasses = 'drawer-open';
 
@@ -39,25 +40,30 @@
             _DrawerApi.open = function () {
                 _el.addClass('open');
                 options.type != 'slide' && _container.addClass(_containerClasses);
+                _body.addClass('overlay-on');
                 return _DrawerApi;
             };
 
             _DrawerApi.close = function () {
                 _container.removeClass(_containerClasses);
                 _el.removeClass('open');
+                _body.removeClass('overlay-on');
                 return _DrawerApi;
             };
             $t.ready()(function () {
                 _el.addClass('alive');
             });
 
-            _DrawerApi.toggle = function () {
+            _DrawerApi.toggle = function (ev) {
+                ev.stopPropagation();
                 _el.is(':visible') ? _DrawerApi.close() : _DrawerApi.open();
                 return _DrawerApi;
             };
 
             if (_triggerEl) {
                 _triggerEl.on('click touchstart', _DrawerApi.toggle);
+                var _overlay = $t('.overlay');
+                _overlay && _overlay.on('click touchstart', _DrawerApi.close);
             }
 
             return _DrawerApi;

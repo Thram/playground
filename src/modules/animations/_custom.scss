@@ -1,4 +1,4 @@
-.alive, .container {
+.alive, .container, .overlay {
   @include transition(all 400ms ease-in-out);
 }
 
