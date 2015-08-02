@@ -6,37 +6,39 @@
 *    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 */
 /* Border-box-sizing */
-.block-group, .block, .block-group:after, .block:after, .block-group:before, .block:before {
+.block-group, .block, .container, .block-group:after, .block:after, .container:after, .block-group:before, .block:before, .container:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  @include transition (all 400ms ease-in-out);
 }
 
-/* Clearfix */
-.block-group {
-  *zoom: 1;
-}
-
-.block-group:before, .block-group:after {
+.block-group:before, .block-group:after, .container:before, .container:after {
   display: table;
   content: "";
   line-height: 0;
 }
 
-.block-group:after {
+.block-group:after,.container:after {
   clear: both;
 }
 
-.block-group {
+.block-group, .container {
   /* ul/li compatibility */
   list-style-type: none;
   padding: 0;
   margin: 0;
+  /* Clearfix */
+  *zoom: 1;
 }
 
-.block-group {
-  position: relative;
+.block-group, .block {
+  &.free {
+    position: absolute;
+  }
+
+  &.fixed {
+    position: fixed;
+  }
 }
 
 /* Gutters */
@@ -53,11 +55,11 @@
 /* Nested grid */
 .block-group > .block-group {
   clear: none;
-  float: left;
+  float: none;
 }
 
 /* Default block */
-.block, .block-group {
+.block, .block-group, .container {
   position: relative;
   max-width: 100%;
   width: 100%;
@@ -66,6 +68,7 @@
 }
 
 .block {
+  overflow: hidden;
   float: left;
 }
 
@@ -103,6 +106,7 @@ $sizes: (
 
 .center {
   margin: auto;
+  float: none !important;
 }
 
 .left {

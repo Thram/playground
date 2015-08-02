@@ -1,0 +1,58 @@
+.drawer {
+  position: fixed !important;
+  z-index: $grid-matrix-size-wide + 1;
+  .handle {
+    position: absolute;
+    padding: 20px;
+    border: 1px solid;
+  }
+  &.left, &.right {
+    top: 0;
+    width: 25%; // Default
+    height: 100%;
+    .handle {
+      top: 28px;
+    }
+  }
+  &.left {
+    @include transform(translateX(-100%));
+    left: 0;
+    .handle {
+      right: -58px;
+    }
+  }
+  &.right {
+    @include transform(translateX(100%));
+    right: 0;
+    .handle {
+      left: -58px;
+    }
+  }
+  &.top, &.bottom {
+    left: 0;
+    height: 25%; // Default
+    width: 100%;
+    .handle {
+      left: 28px;
+    }
+  }
+  &.top {
+    @include transform(translateY(-100%));
+    top: 0;
+    .handle {
+      bottom: -58px;
+    }
+  }
+  &.bottom {
+    @include transform(translateY(100%));
+    bottom: 0;
+    .handle {
+      top: -58px;
+    }
+  }
+
+  &.open {
+    @include transform(translate3d(0, 0, 0))
+  }
+}
+

@@ -1,3 +1,7 @@
+.alive, .container {
+  @include transition(all 400ms ease-in-out);
+}
+
 @include keyframes(fadeIn) {
   0% {
     opacity: 0;

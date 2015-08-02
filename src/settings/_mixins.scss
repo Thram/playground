@@ -400,17 +400,96 @@
 @mixin _grid-sizes($suffix, $wide) {
   $prefix: "";
   $matrix-size: $grid-matrix-size-base;
+  $matrix-unit: $grid-matrix-base-unit;
 
   @if $wide {
     $prefix: ".wide";
     $matrix-size: $grid-matrix-size-wide;
+    $matrix-unit: $grid-matrix-wide-unit;
   }
 
   @for $i from 1 through $matrix-size {
+    $percentage: $matrix-unit * $i;
     #{$prefix}.width#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $matrix-size);
       max-width: $percentage;
       opacity: 1;
+    }
+
+    #{$prefix}.height#{$suffix}-#{$i} {
+      max-height: $percentage;
+      opacity: 1;
+    }
+
+    #{$prefix}.push-right#{$suffix}-#{$i} {
+      margin-left: $percentage;
+    }
+
+    #{$prefix}.push-left#{$suffix}-#{$i} {
+      margin-left: -$percentage;
+    }
+
+    #{$prefix}.push-down#{$suffix}-#{$i} {
+      margin-top: $percentage;
+    }
+
+    #{$prefix}.push-up#{$suffix}-#{$i} {
+      margin-top: -$percentage;
+    }
+
+    #{$prefix}.depth#{$suffix}-#{$i} {
+      z-index: $i !important;
+    }
+
+    #{$prefix}.depth#{$suffix}--#{$i} {
+      z-index: -$i !important;
+    }
+
+    #{$prefix}.top#{$suffix}-#{$i} {
+      top: $percentage !important;
+    }
+
+    #{$prefix}.top#{$suffix}--#{$i} {
+      top: -$percentage !important;
+    }
+
+    #{$prefix}.bottom#{$suffix}-#{$i} {
+      bottom: $percentage !important;
+    }
+
+    #{$prefix}.bottom#{$suffix}--#{$i} {
+      bottom: -$percentage !important;
+    }
+
+    #{$prefix}.left#{$suffix}-#{$i} {
+      left: $percentage !important;
+    }
+
+    #{$prefix}.left#{$suffix}--#{$i} {
+      left: -$percentage !important;
+    }
+
+    #{$prefix}.right#{$suffix}-#{$i} {
+      right: $percentage !important;
+    }
+
+    #{$prefix}.right#{$suffix}--#{$i} {
+      right: -$percentage !important;
+    }
+
+    #{$prefix}.translate-x#{$suffix}-#{$i} {
+      @include transform(translateX($percentage));
+    }
+
+    #{$prefix}.translate-x#{$suffix}--#{$i} {
+      @include transform(translateX(-$percentage));
+    }
+
+    #{$prefix}.translate-y#{$suffix}-#{$i} {
+      @include transform(translateY($percentage));
+    }
+
+    #{$prefix}.translate-y#{$suffix}--#{$i} {
+      @include transform(translateY(-$percentage));
     }
   }
 
@@ -419,57 +498,16 @@
     opacity: 0 !important;
   }
 
-  @for $i from 1 through $grid-matrix-size-base {
-    #{$prefix}.height#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $grid-matrix-size-base);
-      max-height: $percentage;
-      opacity: 1;
-    }
-  }
-
   #{$prefix}.height#{$suffix}-0 {
     max-height: 0 !important;
     opacity: 0 !important;
   }
-  @for $i from 1 through $matrix-size {
-    #{$prefix}.push-width#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $matrix-size);
-      margin-left: $percentage;
-      opacity: 1;
-    }
-  }
-
-  @for $i from 1 through $matrix-size {
-    #{$prefix}.pull-width#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $matrix-size);
-      margin-left: -$percentage;
-      opacity: 1;
-    }
-  }
-
   #{$prefix}.pull-width#{$suffix}-0, #{$prefix}.push-width#{$suffix}-0 {
-    max-width: 0 !important;
-    opacity: 0 !important;
-  }
-
-  @for $i from 1 through $grid-matrix-size-base {
-    #{$prefix}.push-height#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $grid-matrix-size-base);
-      margin-top: $percentage;
-      opacity: 1;
-    }
-  }
-  @for $i from 1 through $grid-matrix-size-base {
-    #{$prefix}.pull-height#{$suffix}-#{$i} {
-      $percentage: 100% * ($i / $grid-matrix-size-base);
-      margin-top: -$percentage;
-      opacity: 1;
-    }
+    margin-left: 0 !important;
   }
 
   #{$prefix}.pull-height#{$suffix}-0, #{$prefix}.push-height#{$suffix}-0 {
-    max-height: 0 !important;
-    opacity: 0 !important;
+    margin-top: 0 !important;
   }
 }
 
