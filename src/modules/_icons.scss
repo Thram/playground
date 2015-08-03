@@ -376,10 +376,15 @@ $icons: (
   i.#{$class}:before {
     content: $value;
   }
-  ul.list.#{$class} li:not(.title):before,
-  ul.menu.#{$class} li:not(.title):before,
-  li.icon.#{$class}:before {
-    content: $value;
+  ul {
+    &.list.#{$class}, &.menu.#{$class} {
+      li:not(.title):before {
+        content: $value;
+      }
+    }
+    li.icon.#{$class}:before {
+      content: $value !important;
+    }
   }
 
 }

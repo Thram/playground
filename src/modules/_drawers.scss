@@ -1,14 +1,18 @@
 .drawer {
   position: fixed !important;
   z-index: $grid-matrix-size-wide + 2; // Still available after the overlay is active
+
   &.flat {
     @include box-shadow(none !important);
   }
+
   .handle {
     position: absolute;
     padding: 20px;
     border: 1px solid;
+    cursor: pointer;
   }
+
   &.left, &.right {
     top: 0;
     width: 25%; // Default
@@ -17,6 +21,7 @@
       top: 28px;
     }
   }
+
   &.left {
     @include box-shadow(inset -10px 0 10px -5px $box-shadow-color);
     @include transform(translateX(-100%));
