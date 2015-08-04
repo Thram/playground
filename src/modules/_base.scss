@@ -156,11 +156,11 @@ ul {
           border-bottom: 1px solid rgba(0, 0, 0, .1);
           border-left: 1px solid rgba(0, 0, 0, .1);
           border-right: 1px solid rgba(0, 0, 0, .1);
-          box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.3);
           &.active {
             top: 1em;
             font-weight: bold;
-            box-shadow: 0 10px 5px -5px rgba(0, 0, 0, .3);
+            box-shadow: 0 5px 5px -1px rgba(0, 0, 0, .3);
           }
         }
       }
@@ -172,11 +172,11 @@ ul {
           border-top: 1px solid rgba(0, 0, 0, .1);
           border-left: 1px solid rgba(0, 0, 0, .1);
           border-right: 1px solid rgba(0, 0, 0, .1);
-          box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -3px 5px -1px rgba(0, 0, 0, 0.3);
           &.active {
             bottom: 1em;
             font-weight: bold;
-            box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, .3);
+            box-shadow: 0 -5px 5px -1px rgba(0, 0, 0, .3);
           }
         }
       }
@@ -188,12 +188,12 @@ ul {
         border-bottom: 1px solid rgba(0, 0, 0, .1);
         border-top: 1px solid rgba(0, 0, 0, .1);
         border-right: 1px solid rgba(0, 0, 0, .1);
-        box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.3);
+        box-shadow: 3px 0 5px -1px rgba(0, 0, 0, 0.3);
 
         &.active {
           left: 1em;
           font-weight: bold;
-          box-shadow: 10px 0 5px -5px rgba(0, 0, 0, .3);
+          box-shadow: 5px 0 5px -1px rgba(0, 0, 0, .3);
         }
       }
     }
@@ -205,11 +205,11 @@ ul {
         border-bottom: 1px solid rgba(0, 0, 0, .1);
         border-left: 1px solid rgba(0, 0, 0, .1);
         border-top: 1px solid rgba(0, 0, 0, .1);
-        box-shadow: -5px 0 5px -5px rgba(0, 0, 0, 0.3);
+        box-shadow: -3px 0 5px -1px rgba(0, 0, 0, 0.3);
         &.active {
           right: 1em;
           font-weight: bold;
-          box-shadow: -10px 0 5px -5px rgba(0, 0, 0, .3);
+          box-shadow: -5px 0 5px -1px rgba(0, 0, 0, .3);
         }
       }
     }
