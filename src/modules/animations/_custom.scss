@@ -1,5 +1,9 @@
-.alive, .container, .overlay {
-  @include transition(all 400ms ease-in-out);
+.alive, .container, .overlay, ul.menu li, button, .button {
+  @include transition(all 300ms ease-in-out);
+}
+
+ul.menu li, ul.tabs li, button, .button {
+  @include transition(all 150ms ease-in-out);
 }
 
 @include keyframes(fadeIn) {

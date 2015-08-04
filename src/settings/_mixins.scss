@@ -489,6 +489,34 @@
     }
   }
 
+  #{$prefix}.depth#{$suffix}-0 {
+    z-index: 0 !important;
+  }
+
+  #{$prefix}.top#{$suffix}-0 {
+    top: 0 !important;
+  }
+
+  #{$prefix}.bottom#{$suffix}-0 {
+    bottom: 0 !important;
+  }
+
+  #{$prefix}.left#{$suffix}-0 {
+    left: 0 !important;
+  }
+
+  #{$prefix}.right#{$suffix}-0 {
+    right: 0 !important;
+  }
+
+  #{$prefix}.translate-x#{$suffix}-0 {
+    @include transform(translateX(0));
+  }
+
+  #{$prefix}.translate-y#{$suffix}-0 {
+    @include transform(translateY(0));
+  }
+
   #{$prefix}.width#{$suffix}-0 {
     max-width: 0 !important;
     opacity: 0 !important;
@@ -498,11 +526,12 @@
     max-height: 0 !important;
     opacity: 0 !important;
   }
-  #{$prefix}.pull-width#{$suffix}-0, #{$prefix}.push-width#{$suffix}-0 {
+
+  #{$prefix}.push-right#{$suffix}-0, #{$prefix}.push-left#{$suffix}-0 {
     margin-left: 0 !important;
   }
 
-  #{$prefix}.pull-height#{$suffix}-0, #{$prefix}.push-height#{$suffix}-0 {
+  #{$prefix}.push-down#{$suffix}-0, #{$prefix}.push-up#{$suffix}-0 {
     margin-top: 0 !important;
   }
 }

@@ -7,17 +7,17 @@
   font-style: normal;
 }
 
-ul.list li:before, ul.menu li:before, li.icon:before {
+ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before {
   margin-right: 1em;
 }
 
 ul.horizontal {
-  &.list li:before, &.menu li:before, li.icon:before {
-    margin: 0 .5em;
+  &.list li:before, &.menu li:before, &.tabs li:before, li.icon:before {
+    margin-right: .5em;
   }
 }
 
-i:before, ul.list li:before, ul.menu li:before, li.icon:before {
+i:before, ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before {
   font-family: $icons-font-name;
   font-style: normal;
   font-weight: normal;
@@ -377,7 +377,7 @@ $icons: (
     content: $value;
   }
   ul {
-    &.list.#{$class}, &.menu.#{$class} {
+    &.list.#{$class}, &.menu.#{$class}, &.tabs.#{$class} {
       li:not(.title):before {
         content: $value;
       }
