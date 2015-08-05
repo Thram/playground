@@ -135,6 +135,7 @@ ul {
   &.list.horizontal, &.menu.horizontal, &.tabs.horizontal {
     margin: 0;
     li {
+      padding: .5em;
       display: inline-block;
       float: left;
     }
