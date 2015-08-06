@@ -6,7 +6,7 @@
         $t.registerAddOn('drawer', function (options) {
             var _DrawerApi = {};
             options        = options || {};
-            if (this.length > 0) {
+            if (thram.toolbox.isDOMElement(this) || this.length > 0) {
                 var _el               = $t(this),
                     _position         = options.position || 'left',
                     _size             = options.size || 2,
