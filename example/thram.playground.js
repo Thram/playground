@@ -3,67 +3,122 @@
  */
 (function () {
     if (window.$t) {
-        $t.registerAddOn('drawer', function (options) {
-            options               = options || {};
-            var _DrawerApi        = {},
-                _el               = $t(this),
-                _position         = options.position || 'left',
-                _size             = options.size || 2,
-                _type             = options.type || 'push',
-                _isOpen           = options.open || false,
-                _triggerEl        = options.trigger || $t('.handle'),
-                _drawerSize       = '',
-                _body             = $t('body'),
-                _container        = $t('.container'),
-                _containerClasses = 'drawer-open';
+        $t.registerAddOn('dropdown', function (options) {
+            var _DropDownApi = {};
+            options          = options || {};
+            if (thram.toolbox.isDOMElement(this) || this.length > 0) {
+                var _el           = $t(this),
+                    _position     = options.position || 'bottom',
+                    _size         = options.size || 2,
+                    _type         = options.type || 'push',
+                    _isOpen       = options.open || false,
+                    _triggerEl    = options.trigger || $t('.dropdown-trigger'),
+                    _dropDownSize = '';
 
-            switch (_position) {
-                case 'top':
-                    _drawerSize = 'height-' + _size;
-                    _containerClasses += (_type === 'slide' ? '' : ' translate-y-' + _size );
-                    break;
-                case 'right':
-                    _drawerSize = 'width-' + _size;
-                    _containerClasses += (_type === 'slide' ? '' : ' translate-x--' + _size );
-                    break;
-                case 'bottom':
-                    _drawerSize = 'height-' + _size;
-                    _containerClasses += (_type === 'slide' ? '' : ' translate-y--' + _size );
-                    break;
-                case 'left':
-                default :
-                    _drawerSize = 'width-' + _size;
-                    _containerClasses += (_type === 'slide' ? '' : ' translate-x-' + _size );
+                switch (_position) {
+                    case 'top':
+                        _dropDownSize = 'height-' + _size;
+                        break;
+                    case 'right':
+                        _dropDownSize = 'width-' + _size;
+                        break;
+                    case 'bottom':
+                        _dropDownSize = 'height-' + _size;
+                        break;
+                    case 'left':
+                    default :
+                        _dropDownSize = 'width-' + _size;
+                }
+                _el.addClass(_type + (_isOpen ? _dropDownSize : ''));
+                _DropDownApi.open     = function () {
+                    _el.addClass(_dropDownSize);
+                    return _DropDownApi;
+                };
+
+                _DropDownApi.close = function () {
+                    _el.removeClass(_dropDownSize);
+                    return _DropDownApi;
+                };
+                $t.ready()(function () {
+                    _el.addClass('alive');
+                });
+
+                _DropDownApi.toggle = function (ev) {
+                    ev.stopPropagation();
+                    _el.is(':visible') ? _DropDownApi.close() : _DropDownApi.open();
+                    return _DropDownApi;
+                };
+
+                if (_triggerEl) {
+                    _triggerEl.on('click touchstart', _DropDownApi.toggle);
+                }
             }
-            _el.addClass(_position + ' ' + _drawerSize + (_isOpen ? 'open' : ''));
 
-            _DrawerApi.open = function () {
-                _el.addClass('open');
-                options.type != 'slide' && _container.addClass(_containerClasses);
-                _body.addClass('overlay-on');
-                return _DrawerApi;
-            };
+            return _DropDownApi;
+        });
+        $t.registerAddOn('drawer', function (options) {
+            var _DrawerApi = {};
+            options        = options || {};
+            if (thram.toolbox.isDOMElement(this) || this.length > 0) {
+                var _el               = $t(this),
+                    _position         = options.position || 'left',
+                    _size             = options.size || 2,
+                    _type             = options.type || 'push',
+                    _isOpen           = options.open || false,
+                    _triggerEl        = options.trigger || $t('.handle'),
+                    _drawerSize       = '',
+                    _body             = $t('body'),
+                    _container        = $t('.container'),
+                    _containerClasses = 'drawer-open';
 
-            _DrawerApi.close = function () {
-                _container.removeClass(_containerClasses);
-                _el.removeClass('open');
-                _body.removeClass('overlay-on');
-                return _DrawerApi;
-            };
-            $t.ready()(function () {
-                _el.addClass('alive');
-            });
+                switch (_position) {
+                    case 'top':
+                        _drawerSize = 'height-' + _size;
+                        _containerClasses += (_type === 'slide' ? '' : ' translate-y-' + _size );
+                        break;
+                    case 'right':
+                        _drawerSize = 'width-' + _size;
+                        _containerClasses += (_type === 'slide' ? '' : ' translate-x--' + _size );
+                        break;
+                    case 'bottom':
+                        _drawerSize = 'height-' + _size;
+                        _containerClasses += (_type === 'slide' ? '' : ' translate-y--' + _size );
+                        break;
+                    case 'left':
+                    default :
+                        _drawerSize = 'width-' + _size;
+                        _containerClasses += (_type === 'slide' ? '' : ' translate-x-' + _size );
+                }
+                _el.addClass(_position + ' ' + _drawerSize + (_isOpen ? 'open' : ''));
 
-            _DrawerApi.toggle = function (ev) {
-                ev.stopPropagation();
-                _el.is(':visible') ? _DrawerApi.close() : _DrawerApi.open();
-                return _DrawerApi;
-            };
+                _DrawerApi.open = function () {
+                    _el.addClass('open');
+                    options.type != 'slide' && _container.addClass(_containerClasses);
+                    _body.addClass('overlay-on');
+                    return _DrawerApi;
+                };
 
-            if (_triggerEl) {
-                _triggerEl.on('click touchstart', _DrawerApi.toggle);
-                var _overlay = $t('.overlay');
-                _overlay && _overlay.on('click touchstart', _DrawerApi.close);
+                _DrawerApi.close = function () {
+                    _container.removeClass(_containerClasses);
+                    _el.removeClass('open');
+                    _body.removeClass('overlay-on');
+                    return _DrawerApi;
+                };
+                $t.ready()(function () {
+                    _el.addClass('alive');
+                });
+
+                _DrawerApi.toggle = function (ev) {
+                    ev.stopPropagation();
+                    _el.is(':visible') ? _DrawerApi.close() : _DrawerApi.open();
+                    return _DrawerApi;
+                };
+
+                if (_triggerEl) {
+                    _triggerEl.on('click touchstart', _DrawerApi.toggle);
+                    var _overlay = $t('.overlay');
+                    _overlay && _overlay.on('click touchstart', _DrawerApi.close);
+                }
             }
 
             return _DrawerApi;
