@@ -17,7 +17,7 @@ ul.horizontal {
   }
 }
 
-i:before, ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before {
+i:before, ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before, input[type="checkbox"]:before, input[type="radio"]:before {
   font-family: $icons-font-name;
   font-style: normal;
   font-weight: normal;
@@ -387,4 +387,12 @@ $icons: (
     }
   }
 
+}
+
+@function icon($name) {
+  @if map-has-key($icons, $name) {
+    @return map-get($icons, $name);
+  }
+  @warn "Unknown `#{name}` in $icon.";
+  @return null;
 }

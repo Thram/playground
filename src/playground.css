@@ -19105,7 +19105,7 @@ ul.horizontal.list li:before, ul.horizontal.menu li:before, ul.horizontal.tabs l
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_icons\.scss}line{font-family:\0000320}}
-i:before, ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before {
+i:before, ul.list li:before, ul.menu li:before, ul.tabs li:before, li.icon:before, input[type="checkbox"]:before, input[type="radio"]:before {
   font-family: "typicons";
   font-style: normal;
   font-weight: normal;
@@ -42641,6 +42641,165 @@ button.question:active, .button.question:active {
   top: 1px;
   color: #00acc1;
   background: #0fe5ff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_buttons\.scss}line{font-family:\0000319}}
+.icon-button {
+  padding: 0 !important;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_buttons\.scss}line{font-family:\0000321}}
+.icon-button i {
+  font-size: 2em;
+}
+
+/* form elements */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\000034}}
+label {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\000038}}
+input[type="text"], input[type="radio"], input[type="checkbox"] {
+  display: block;
+  color: #212121;
+  margin: 0;
+  width: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000324}}
+input[type="text"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+  outline: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000329}}
+form, .form {
+  /* ============================================================
+    GLOW
+  ============================================================ */
+  /* ============================================================
+    Thick Border
+  ============================================================ */
+  /* ============================================================
+    Double Border
+  ============================================================ */
+  /* ============================================================
+    Underline
+  ============================================================ */
+  /* ============================================================
+    Inset
+  ============================================================ */
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000334}}
+form.glow input[type="text"], .form.glow input[type="text"] {
+  padding: 10px;
+  border: solid 1px gainsboro;
+  -webkit-transition: box-shadow 0.3s, border 0.3s;
+  -moz-transition: box-shadow 0.3s, border 0.3s;
+  -o-transition: box-shadow 0.3s, border 0.3s;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000341}}
+form.glow input[type="text"]:focus, form.glow input[type="text"].focus, .form.glow input[type="text"]:focus, .form.glow input[type="text"].focus {
+  border: solid 1px #707070;
+  -webkit-box-shadow: 0 0 5px 1px #969696;
+  -moz-box-shadow: 0 0 5px 1px #969696;
+  box-shadow: 0 0 5px 1px #969696;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000354}}
+form.thick-border input[type="text"], .form.thick-border input[type="text"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000361}}
+form.thick-border input[type="text"]:focus, form.thick-border input[type="text"].focus, .form.thick-border input[type="text"]:focus, .form.thick-border input[type="text"].focus {
+  border: solid 5px #969696;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000371}}
+form.double-border input[type="text"], .form.double-border input[type="text"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  -webkit-box-shadow: inset 0 0 0 1px #707070;
+  -moz-box-shadow: inset 0 0 0 1px #707070;
+  box-shadow: inset 0 0 0 1px #707070;
+  -webkit-transition: box-shadow 0.3s, border 0.3s;
+  -moz-transition: box-shadow 0.3s, border 0.3s;
+  -o-transition: box-shadow 0.3s, border 0.3s;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000381}}
+form.double-border input[type="text"]:focus, form.double-border input[type="text"].focus, .form.double-border input[type="text"]:focus, .form.double-border input[type="text"].focus {
+  border: solid 5px #969696;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000391}}
+form.underline input[type="text"], .form.underline input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\0000399}}
+form.underline input[type="text"]:focus, form.underline input[type="text"].focus, .form.underline input[type="text"]:focus, .form.underline input[type="text"].focus {
+  border-bottom: solid 2px #969696;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003109}}
+form.inset input[type="text"], .form.inset input[type="text"] {
+  padding: 10px;
+  border: solid 1px #fff;
+  -webkit-box-shadow: inset 1px 1px 2px 0 #707070;
+  -moz-box-shadow: inset 1px 1px 2px 0 #707070;
+  box-shadow: inset 1px 1px 2px 0 #707070;
+  -webkit-transition: box-shadow 0.3s;
+  -moz-transition: box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003119}}
+form.inset input[type="text"]:focus, form.inset input[type="text"].focus, .form.inset input[type="text"]:focus, .form.inset input[type="text"].focus {
+  -webkit-box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+  -moz-box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+  box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003128}}
+form input[type="radio"], form input[type="checkbox"], .form input[type="radio"], .form input[type="checkbox"] {
+  display: inline-block;
+  font-size: 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003131}}
+form input[type="radio"].dark, form input[type="checkbox"].dark, .form input[type="radio"].dark, .form input[type="checkbox"].dark {
+  color: white;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003136}}
+form input[type="radio"]:checked:before, .form input[type="radio"]:checked:before {
+  content: "";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003139}}
+form input[type="radio"]:before, .form input[type="radio"]:before {
+  content: "";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003144}}
+form input[type="checkbox"]:checked:before, .form input[type="checkbox"]:checked:before {
+  content: "";
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/thram\/Development\/Thram\/playground\/src\/modules\/_forms\.scss}line{font-family:\00003147}}
+form input[type="checkbox"]:before, .form input[type="checkbox"]:before {
+  content: "";
 }
 
 @-moz-keyframes spinner-loader {
