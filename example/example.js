@@ -2,4 +2,4 @@
  * Created by thram on 2/08/15.
  */
 
-var drawer = $t('.drawer').drawer();
+var drawer = $t('.drawer').drawer({type: 'slide'});

@@ -1,0 +1,19 @@
+{
+  "name": "example playground",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Thram/playground",
+  "authors": [
+    "thram <thramposo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "thram.js": "*"
+  }
+}
