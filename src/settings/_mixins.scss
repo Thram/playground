@@ -212,6 +212,11 @@
   @include css3-prefix('resize', $direction);
 }
 
+// APPEARANCE
+@mixin appearance($appearance: normal) {
+  @include css3-prefix('appearance', $appearance);
+}
+
 // ROTATE
 @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
   @include css3-prefix('transform', rotate($deg + deg));
@@ -289,38 +294,6 @@
   border-radius: $radius;
 }
 
-//Buttons
-
-@mixin button($color: $red, $text_color: $white) {
-  display: inline-block;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  @include font-size(14px);
-  padding: .5em 2em .55em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
-
-  color: $text_color !important;
-  font-weight: bold;
-  border: solid 1px darken($color, 18%);
-  background: $color;
-
-  &:hover {
-    text-decoration: none;
-    color: saturate($color, 10%);
-    background: darken($color, 5%);
-  }
-
-  &:active {
-    position: relative;
-    top: 1px;
-    color: saturate($color, 15%);
-    background: lighten($color, 15%);
-  }
-}
-
 // Mixins from: http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
 
 // Set a rem font size with pixel fallback
@@ -392,164 +365,24 @@
   position: absolute;
 }
 
-// Grid Sizes
-@mixin _grid-sizes($suffix, $wide) {
-  $prefix: "";
-  $matrix-size: $grid-matrix-size-base;
-  $matrix-unit: $grid-matrix-base-unit;
+// usage: color("name_of_color", "type_of_color")
+// to avoid to repeating map-get($colors, ...)
 
-  @if $wide {
-    $prefix: ".wide";
-    $matrix-size: $grid-matrix-size-wide;
-    $matrix-unit: $grid-matrix-wide-unit;
-  }
-
-  @for $i from 1 through $matrix-size {
-    $percentage: $matrix-unit * $i;
-    #{$prefix}.width#{$suffix}-#{$i} {
-      max-width: $percentage;
-      opacity: 1;
-    }
-
-    #{$prefix}.height#{$suffix}-#{$i} {
-      max-height: $percentage;
-      opacity: 1;
-    }
-
-    #{$prefix}.push-right#{$suffix}-#{$i} {
-      margin-left: $percentage;
-    }
-
-    #{$prefix}.push-left#{$suffix}-#{$i} {
-      margin-left: -$percentage;
-    }
-
-    #{$prefix}.push-down#{$suffix}-#{$i} {
-      margin-top: $percentage;
-    }
-
-    #{$prefix}.push-up#{$suffix}-#{$i} {
-      margin-top: -$percentage;
-    }
-
-    #{$prefix}.depth#{$suffix}-#{$i} {
-      z-index: $i !important;
-    }
-
-    #{$prefix}.depth#{$suffix}--#{$i} {
-      z-index: -$i !important;
-    }
-
-    #{$prefix}.top#{$suffix}-#{$i} {
-      top: $percentage !important;
-    }
-
-    #{$prefix}.top#{$suffix}--#{$i} {
-      top: -$percentage !important;
-    }
-
-    #{$prefix}.bottom#{$suffix}-#{$i} {
-      bottom: $percentage !important;
-    }
-
-    #{$prefix}.bottom#{$suffix}--#{$i} {
-      bottom: -$percentage !important;
-    }
-
-    #{$prefix}.left#{$suffix}-#{$i} {
-      left: $percentage !important;
-    }
-
-    #{$prefix}.left#{$suffix}--#{$i} {
-      left: -$percentage !important;
-    }
-
-    #{$prefix}.right#{$suffix}-#{$i} {
-      right: $percentage !important;
-    }
-
-    #{$prefix}.right#{$suffix}--#{$i} {
-      right: -$percentage !important;
-    }
-
-    #{$prefix}.translate-x#{$suffix}-#{$i} {
-      @include transform(translateX($percentage));
-    }
-
-    #{$prefix}.translate-x#{$suffix}--#{$i} {
-      @include transform(translateX(-$percentage));
-    }
-
-    #{$prefix}.translate-y#{$suffix}-#{$i} {
-      @include transform(translateY($percentage));
-    }
-
-    #{$prefix}.translate-y#{$suffix}--#{$i} {
-      @include transform(translateY(-$percentage));
+@function color($color, $type) {
+  @if map-has-key($colors, $color) {
+    $curr_color: map-get($colors, $color);
+    @if map-has-key($curr_color, $type) {
+      @return map-get($curr_color, $type);
     }
   }
-
-  #{$prefix}.depth#{$suffix}-0 {
-    z-index: 0 !important;
-  }
-
-  #{$prefix}.top#{$suffix}-0 {
-    top: 0 !important;
-  }
-
-  #{$prefix}.bottom#{$suffix}-0 {
-    bottom: 0 !important;
-  }
-
-  #{$prefix}.left#{$suffix}-0 {
-    left: 0 !important;
-  }
-
-  #{$prefix}.right#{$suffix}-0 {
-    right: 0 !important;
-  }
-
-  #{$prefix}.translate-x#{$suffix}-0 {
-    @include transform(translateX(0));
-  }
-
-  #{$prefix}.translate-y#{$suffix}-0 {
-    @include transform(translateY(0));
-  }
-
-  #{$prefix}.width#{$suffix}-0 {
-    max-width: 0 !important;
-    opacity: 0 !important;
-  }
-
-  #{$prefix}.height#{$suffix}-0 {
-    max-height: 0 !important;
-    opacity: 0 !important;
-  }
-
-  #{$prefix}.push-right#{$suffix}-0, #{$prefix}.push-left#{$suffix}-0 {
-    margin-left: 0 !important;
-  }
-
-  #{$prefix}.push-down#{$suffix}-0, #{$prefix}.push-up#{$suffix}-0 {
-    margin-top: 0 !important;
-  }
+  @warn "Unknown `#{$color}` in $colors.";
+  @return null;
 }
 
-@mixin grid-sizes($size, $suffix, $wide:false) {
-  @if $size =="default" {
-    @include _grid-sizes($suffix, $wide);
-  } @else if $size =="large" {
-    @include bp-large() {
-      @include _grid-sizes($suffix, $wide);
-    }
-  } @else if $size =="medium" {
-    @include bp-medium() {
-      @include _grid-sizes($suffix, $wide);
-    }
-  } @else if $size =="small" {
-    @include bp-small() {
-      @include _grid-sizes($suffix, $wide);
-    }
+@function isColorEnabled($color) {
+  @if map-has-key($enabledColors, $color) {
+    @return map-get($enabledColors, $color);
   }
+  @warn "Unknown `#{$color}` in $colors.";
+  @return false;
 }

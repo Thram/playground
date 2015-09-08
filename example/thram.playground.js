@@ -3,59 +3,6 @@
  */
 (function () {
     if (window.$t) {
-        $t.registerAddOn('dropdown', function (options) {
-            var _DropDownApi = {};
-            options          = options || {};
-            if (thram.toolbox.isDOMElement(this) || this.length > 0) {
-                var _el           = $t(this),
-                    _position     = options.position || 'bottom',
-                    _size         = options.size || 2,
-                    _type         = options.type || 'push',
-                    _isOpen       = options.open || false,
-                    _triggerEl    = options.trigger || $t('.dropdown-trigger'),
-                    _dropDownSize = '';
-
-                switch (_position) {
-                    case 'top':
-                        _dropDownSize = 'height-' + _size;
-                        break;
-                    case 'right':
-                        _dropDownSize = 'width-' + _size;
-                        break;
-                    case 'bottom':
-                        _dropDownSize = 'height-' + _size;
-                        break;
-                    case 'left':
-                    default :
-                        _dropDownSize = 'width-' + _size;
-                }
-                _el.addClass(_type + (_isOpen ? _dropDownSize : ''));
-                _DropDownApi.open     = function () {
-                    _el.addClass(_dropDownSize);
-                    return _DropDownApi;
-                };
-
-                _DropDownApi.close = function () {
-                    _el.removeClass(_dropDownSize);
-                    return _DropDownApi;
-                };
-                $t.ready()(function () {
-                    _el.addClass('alive');
-                });
-
-                _DropDownApi.toggle = function (ev) {
-                    ev.stopPropagation();
-                    _el.is(':visible') ? _DropDownApi.close() : _DropDownApi.open();
-                    return _DropDownApi;
-                };
-
-                if (_triggerEl) {
-                    _triggerEl.on('click touchstart', _DropDownApi.toggle);
-                }
-            }
-
-            return _DropDownApi;
-        });
         $t.registerAddOn('drawer', function (options) {
             var _DrawerApi = {};
             options        = options || {};

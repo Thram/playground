@@ -1,12 +1,52 @@
-.dropdown {
-  height: 0;
-  padding: 0;
+ul.dropdown {
+  z-index: $z-index-level-2;
+  text-align: left;
+  display: inline;
   margin: 0;
-  overflow: hidden;
-  .push {
+  padding: 15px 4px 17px 0;
+  list-style: none;
+  @include box-shadow(0 0 5px $box-shadow-color);
 
-  }
-  .slide {
+  li {
+    z-index: $z-index-level-2;
+    display: inline-block;
+    margin-right: -4px;
+    position: relative;
+    padding: 15px 20px;
+    background: #fff;
+    cursor: pointer;
+    @include transition(all 0.2s);
+    &:hover {
+      background: #555;
+      color: #fff;
+      ul {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    ul {
+      padding: 0;
+      position: absolute;
+      top: 48px;
+      left: 0;
+      width: 150px;
+      @include box-shadow(none);
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      @include transition(opacity 0.2s);
+      li {
+        background: #555;
+        display: block;
+        color: #fff;
+        text-shadow: 0 -1px 0 #000;
+        &:hover {
+          background: #666;
+        }
+      }
+    }
 
   }
 }

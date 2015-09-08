@@ -1,0 +1,74 @@
+// Mixins
+
+@mixin menu-color-theme($color_name, $color_type, $color_value) {
+  @if $color_type == "base" {
+    ul.menu.#{$color_name}-text li, ul.menu li.#{$color_name}-text {
+      border-bottom: 1px dashed rgba($color_value, .3);
+    }
+    ul.menu li.#{$color_name}:not(.title):hover {
+      background: rgba($color_value, .3);
+    }
+
+    ul.menu.#{$color_name}-text li:hover {
+      color: saturate($color_value, 10%);
+      background: rgba($color_value, .3);
+    }
+
+    ul.menu.#{$color_name}-text li:active {
+      position: relative;
+      top: 1px;
+      color: saturate($color_value, 15%);
+      background: rgba($color_value, .5);
+      @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+    }
+  } @else {
+    ul.menu.#{$color_name}-text.text-#{$color_type} li,
+    ul.menu li.#{$color_name}-text.text-#{$color_type} {
+      border-bottom: 1px dashed rgba($color_value, .3);
+    }
+
+    ul.menu.#{$color_name}-text li:hover {
+      color: saturate($color_value, 10%);
+      background: rgba($color_value, .3);
+    }
+
+    ul.menu.#{$color_name}-text li:active {
+      position: relative;
+      top: 1px;
+      color: saturate($color_value, 15%);
+      background: rgba($color_value, .5);
+      @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+    }
+  }
+
+}
+
+// Styles
+
+ul.menu {
+  li {
+    position: relative;
+    padding: .5em 0;
+    z-index: 0;
+    cursor: pointer;
+    &.title {
+      border-bottom-style: solid;
+    }
+    &.active {
+      border-width: 2px;
+      border-bottom-style: solid;
+    }
+  }
+  &.horizontal {
+    margin: 0;
+    li {
+      padding: .5em;
+      display: inline-block;
+      float: left;
+    }
+    li.title {
+      border: none;
+      margin: 0 .5em;
+    }
+  }
+}

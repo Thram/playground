@@ -1,3 +1,37 @@
+// MIXINS
+
+@mixin button($color: $red, $text_color: $white) {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  @include font-size(14px);
+  padding: .5em 2em .55em;
+  text-shadow: 0 1px 1px $text-shadow-color;
+  @include box-shadow(0 1px 2px $box-shadow-color);
+
+  color: $text_color !important;
+  font-weight: bold;
+  border: solid 1px darken($color, 18%);
+  background: $color;
+
+  &:hover {
+    text-decoration: none;
+    color: saturate($color, 10%);
+    background: darken($color, 5%);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+    color: saturate($color, 15%);
+    background: lighten($color, 15%);
+  }
+}
+
+// Styles
+
 button, .button {
   &.success {
     @include button(color("teal", "darken-1"), white);

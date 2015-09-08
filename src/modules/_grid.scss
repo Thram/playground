@@ -1,3 +1,169 @@
+// MIXINS
+
+// Grid Sizes
+@mixin _grid-sizes($suffix, $wide) {
+  $prefix: "";
+  $matrix-size: $grid-matrix-size-base;
+  $matrix-unit: $grid-matrix-base-unit;
+
+  @if $wide {
+    $prefix: ".wide";
+    $matrix-size: $grid-matrix-size-wide;
+    $matrix-unit: $grid-matrix-wide-unit;
+  }
+
+  @for $i from 1 through $matrix-size {
+    $percentage: $matrix-unit * $i;
+    #{$prefix}.width#{$suffix}-#{$i} {
+      max-width: $percentage;
+      opacity: 1;
+    }
+
+    #{$prefix}.height#{$suffix}-#{$i} {
+      max-height: $percentage;
+      opacity: 1;
+    }
+
+    #{$prefix}.push-right#{$suffix}-#{$i} {
+      margin-left: $percentage;
+    }
+
+    #{$prefix}.push-left#{$suffix}-#{$i} {
+      margin-left: -$percentage;
+    }
+
+    #{$prefix}.push-down#{$suffix}-#{$i} {
+      margin-top: $percentage;
+    }
+
+    #{$prefix}.push-up#{$suffix}-#{$i} {
+      margin-top: -$percentage;
+    }
+
+    #{$prefix}.depth#{$suffix}-#{$i} {
+      z-index: $i !important;
+    }
+
+    #{$prefix}.depth#{$suffix}--#{$i} {
+      z-index: -$i !important;
+    }
+
+    #{$prefix}.top#{$suffix}-#{$i} {
+      top: $percentage !important;
+    }
+
+    #{$prefix}.top#{$suffix}--#{$i} {
+      top: -$percentage !important;
+    }
+
+    #{$prefix}.bottom#{$suffix}-#{$i} {
+      bottom: $percentage !important;
+    }
+
+    #{$prefix}.bottom#{$suffix}--#{$i} {
+      bottom: -$percentage !important;
+    }
+
+    #{$prefix}.left#{$suffix}-#{$i} {
+      left: $percentage !important;
+    }
+
+    #{$prefix}.left#{$suffix}--#{$i} {
+      left: -$percentage !important;
+    }
+
+    #{$prefix}.right#{$suffix}-#{$i} {
+      right: $percentage !important;
+    }
+
+    #{$prefix}.right#{$suffix}--#{$i} {
+      right: -$percentage !important;
+    }
+
+    #{$prefix}.translate-x#{$suffix}-#{$i} {
+      @include transform(translateX($percentage));
+    }
+
+    #{$prefix}.translate-x#{$suffix}--#{$i} {
+      @include transform(translateX(-$percentage));
+    }
+
+    #{$prefix}.translate-y#{$suffix}-#{$i} {
+      @include transform(translateY($percentage));
+    }
+
+    #{$prefix}.translate-y#{$suffix}--#{$i} {
+      @include transform(translateY(-$percentage));
+    }
+  }
+
+  #{$prefix}.depth#{$suffix}-0 {
+    z-index: 0 !important;
+  }
+
+  #{$prefix}.top#{$suffix}-0 {
+    top: 0 !important;
+  }
+
+  #{$prefix}.bottom#{$suffix}-0 {
+    bottom: 0 !important;
+  }
+
+  #{$prefix}.left#{$suffix}-0 {
+    left: 0 !important;
+  }
+
+  #{$prefix}.right#{$suffix}-0 {
+    right: 0 !important;
+  }
+
+  #{$prefix}.translate-x#{$suffix}-0 {
+    @include transform(translateX(0));
+  }
+
+  #{$prefix}.translate-y#{$suffix}-0 {
+    @include transform(translateY(0));
+  }
+
+  #{$prefix}.width#{$suffix}-0 {
+    max-width: 0 !important;
+    opacity: 0 !important;
+  }
+
+  #{$prefix}.height#{$suffix}-0 {
+    max-height: 0 !important;
+    opacity: 0 !important;
+  }
+
+  #{$prefix}.push-right#{$suffix}-0, #{$prefix}.push-left#{$suffix}-0 {
+    margin-left: 0 !important;
+  }
+
+  #{$prefix}.push-down#{$suffix}-0, #{$prefix}.push-up#{$suffix}-0 {
+    margin-top: 0 !important;
+  }
+}
+
+@mixin grid-sizes($size, $suffix, $wide:false) {
+  @if $size =="default" {
+    @include _grid-sizes($suffix, $wide);
+  } @else if $size =="large" {
+    @include bp-large() {
+      @include _grid-sizes($suffix, $wide);
+    }
+  } @else if $size =="medium" {
+    @include bp-medium() {
+      @include _grid-sizes($suffix, $wide);
+    }
+  } @else if $size =="small" {
+    @include bp-small() {
+      @include _grid-sizes($suffix, $wide);
+    }
+  }
+}
+
+// Styles
+
 /*! PocketGrid 1.1.0
 * Copyright 2013 Arnaud Leray
 * MIT License
@@ -7,9 +173,7 @@
 */
 /* Border-box-sizing */
 .block-group, .block, .container, .block-group:after, .block:after, .container:after, .block-group:before, .block:before, .container:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 .block-group:before, .block-group:after, .container:before, .container:after {
@@ -77,7 +241,7 @@
     max-height: 100%;
     height: 100%;
   }
-  &.font {
+  &.front {
     z-index: 1 !important;
   }
   &.back {
@@ -120,17 +284,4 @@ $sizes: (
 
 @each $size, $suffix in $sizes {
   @include grid-sizes($size, $suffix, true);
-}
-
-.center {
-  margin: auto;
-  float: none !important;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
 }

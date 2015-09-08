@@ -1,7 +1,6 @@
 @import "settings/variables";
 @import "settings/mixins";
 @import "modules/normalize";
-@import "modules/color";
 @import "modules/fonts";
 @import "modules/icons";
 @import "modules/base";
@@ -9,8 +8,13 @@
 @import "modules/grid";
 @import "modules/buttons";
 @import "modules/dropdown";
+@import "modules/menus";
+@import "modules/list";
+@import "modules/tables";
+@import "modules/tabs";
 @import "modules/forms";
 @import "modules/modals";
 @import "modules/spinnners";
 @import "modules/animations/magic";
 @import "modules/animations/custom";
+@import "modules/color";

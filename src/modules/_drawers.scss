@@ -1,6 +1,6 @@
 .drawer {
   position: fixed !important;
-  z-index: $grid-matrix-size-wide + 2; // Still available after the overlay is active
+  z-index: $z-index-level-4; // Still available after the overlay is active
 
   &.flat {
     @include box-shadow(none !important);

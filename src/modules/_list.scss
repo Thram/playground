@@ -1,0 +1,45 @@
+// Mixins
+
+@mixin list-color-theme($color_name, $color_type, $color_value) {
+  @if $color_type == "base" {
+    ul.list.#{$color_name}-text li, ul.list li.#{$color_name}-text {
+      border-bottom: 1px dashed rgba($color_value, .3);
+    }
+  } @else {
+    ul.list.#{$color_name}-text.text-#{$color_type} li,
+    ul.list li.#{$color_name}-text.text-#{$color_type} {
+      border-bottom: 1px dashed rgba($color_value, .3);
+    }
+  }
+
+}
+
+// Styles
+
+ul.list {
+  li.title {
+    border-bottom-style: solid;
+  }
+  li {
+    position: relative;
+    padding: .5em 0;
+    z-index: 0;
+  }
+  li.active {
+    border-width: 2px;
+    border-bottom-style: solid;
+  }
+
+  &.horizontal {
+    margin: 0;
+    li {
+      padding: .5em;
+      display: inline-block;
+      float: left;
+    }
+    li.title {
+      border: none;
+      margin: 0 .5em;
+    }
+  }
+}

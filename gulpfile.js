@@ -48,4 +48,4 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('styles', sync.sync(['clean', ['compass', 'fonts']]));
+gulp.task('default', sync.sync(['clean', ['compass', 'fonts']]));
