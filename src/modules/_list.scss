@@ -14,32 +14,45 @@
 
 }
 
+@mixin create-list-icon($class, $value) {
+  ul.list.#{$class} li:not(.title):before {
+    content: $value !important;
+  }
+}
+
 // Styles
 
 ul.list {
-  li.title {
-    border-bottom-style: solid;
-  }
   li {
+    &:not(.title):before {
+      margin-right: 1em;
+      @include icon();
+    }
+    &.title {
+      border-bottom-style: solid;
+    }
     position: relative;
     padding: .5em 0;
     z-index: 0;
-  }
-  li.active {
-    border-width: 2px;
-    border-bottom-style: solid;
+    &.active {
+      border-width: 2px;
+      border-bottom-style: solid;
+    }
   }
 
   &.horizontal {
     margin: 0;
     li {
+      &:before {
+        margin-right: .5em;
+      }
       padding: .5em;
       display: inline-block;
       float: left;
-    }
-    li.title {
-      border: none;
-      margin: 0 .5em;
+      &.title {
+        border: none;
+        margin: 0 .5em;
+      }
     }
   }
 }

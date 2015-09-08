@@ -107,6 +107,7 @@ form, .form {
     }
     &:before {
       content: icon("media-record-outline");
+      @include icon();
     }
   }
   input[type="checkbox"] {
@@ -115,6 +116,7 @@ form, .form {
     }
     &:before {
       content: icon("media-stop-outline");
+      @include icon();
     }
   }
 }

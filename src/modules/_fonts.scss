@@ -1,18 +1,20 @@
-@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:700italic,600,700,600italic);
 
-$xx-large: 2.5em;
-$x-large: 2em;
-$large: 1.8em;
-$medium: 1.6em;
-$small: 1.4em;
-$x-small: 1.2em;
+$xx-large: 2.2em;
+$x-large: 1.9em;
+$large: 1.7em;
+$medium: 1.5em;
+$small: 1.2em;
+$x-small: 1.1em;
 $xx-small: 1em;
 
 * {
-  font-family: "Inconsolata", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-family: "Roboto Slab", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 h1, h2, h3, h4, h5, h6, p, pre, blockquote {

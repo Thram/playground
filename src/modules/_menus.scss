@@ -51,6 +51,10 @@ ul.menu {
     padding: .5em 0;
     z-index: 0;
     cursor: pointer;
+    &:not(.title):before {
+      content: '';
+      margin-right: .5em;
+    }
     &.title {
       border-bottom-style: solid;
     }
@@ -65,10 +69,11 @@ ul.menu {
       padding: .5em;
       display: inline-block;
       float: left;
+      &.title {
+        border: none;
+        margin: 0 .5em;
+      }
     }
-    li.title {
-      border: none;
-      margin: 0 .5em;
-    }
+
   }
 }

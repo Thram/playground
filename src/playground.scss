@@ -1,12 +1,13 @@
+@charset "UTF-8";
 @import "settings/variables";
 @import "settings/mixins";
 @import "modules/normalize";
 @import "modules/fonts";
-@import "modules/icons";
 @import "modules/base";
 @import "modules/drawers";
 @import "modules/grid";
 @import "modules/buttons";
+@import "modules/collapse";
 @import "modules/dropdown";
 @import "modules/menus";
 @import "modules/list";
@@ -15,6 +16,7 @@
 @import "modules/forms";
 @import "modules/modals";
 @import "modules/spinnners";
+@import "modules/icons";
+@import "modules/color";
 @import "modules/animations/magic";
 @import "modules/animations/custom";
-@import "modules/color";

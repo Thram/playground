@@ -365,6 +365,8 @@
   position: absolute;
 }
 
+// Colors
+
 // usage: color("name_of_color", "type_of_color")
 // to avoid to repeating map-get($colors, ...)
 
@@ -385,4 +387,22 @@
   }
   @warn "Unknown `#{$color}` in $colors.";
   @return false;
+}
+
+// Icons
+
+@mixin icon() {
+  font-family: $icons-font-name;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }

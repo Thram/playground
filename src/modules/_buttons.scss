@@ -8,7 +8,7 @@
   text-decoration: none;
   @include font-size(14px);
   padding: .5em 2em .55em;
-  text-shadow: 0 1px 1px $text-shadow-color;
+  @include text-shadow(0 1px 1px $text-shadow-color);
   @include box-shadow(0 1px 2px $box-shadow-color);
 
   color: $text_color !important;
@@ -54,5 +54,56 @@ button, .button {
   padding: 0 !important;
   i {
     font-size: 2em;
+  }
+}
+
+// Animated Buttons!
+
+$arrow-color: color("shades", "black");
+
+input.up-down-arrows[type=checkbox],
+input.up-down-arrows[type=radio] {
+  position: absolute;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+  opacity: 0;
+  & ~ i {
+    position: absolute;
+    width: 9px;
+    height: 12px;
+    @include transform(translate(100%, 50%));
+
+    &:before, &:after {
+      content: "";
+      @include transition(all 0.25s ease-in-out);
+      position: absolute;
+      background-color: $arrow-color;
+      width: 3px;
+      height: 9px;
+    }
+    &:before {
+      @include transform(translate(2px, 0) rotate(45deg));
+
+    }
+
+    &:after {
+      @include transform(translate(-2px, 0) rotate(-45deg));
+    }
+
+  }
+
+  &:checked {
+    & ~ i {
+      &:before {
+        @include transform(translate(-2px, 0) rotate(45deg));
+      }
+
+      &:after {
+        @include transform(translate(2px, 0) rotate(-45deg));
+      }
+
+    }
   }
 }
