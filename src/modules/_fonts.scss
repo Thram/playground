@@ -2,25 +2,26 @@
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:700italic,600,700,600italic);
 
 $xx-large: 2.2em;
-$x-large: 1.9em;
-$large: 1.7em;
-$medium: 1.5em;
+$x-large: 2em;
+$large: 1.8em;
+$medium: 1.4em;
 $small: 1.2em;
-$x-small: 1.1em;
-$xx-small: 1em;
+$x-small: 1em;
+$xx-small: .8em;
 
 * {
   font-family: "Roboto Slab", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 }
 
 h1, h2, h3, h4, h5, h6, p, pre, blockquote {
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
+  margin: .5em 0;
 }
 
 h1, h2, h3, h4, h5, h6, th, ul.list li.title, ul.menu li.title {
@@ -28,43 +29,75 @@ h1, h2, h3, h4, h5, h6, th, ul.list li.title, ul.menu li.title {
 }
 
 h1 {
-  font-size: $xx-large;
+  font-size: $x-large;
   font-weight: 600;
 }
 
 h2 {
-  font-size: $x-large;
+  font-size: $large;
 }
 
 h3 {
-  font-size: $large;
+  font-size: $medium;
   font-weight: 600;
 }
 
 h4 {
-  font-size: $medium;
+  font-size: $small;
 }
 
 h5 {
-  font-size: $small;
+  font-size: $x-small;
 }
 
 h6 {
-  font-size: $x-small;
+  font-size: $xx-small;
 }
 
-p, td, th {
-  font-size: $small;
+td, th, p, pre {
+  font-size: $x-small;
 }
 
 blockquote {
+  font-size: $small;
+}
+
+label, sup, sub {
+  font-size: $xx-small;
+}
+
+.font-xx-large {
+  font-size: $xx-large;
+}
+
+.font-x-large {
+  font-size: $x-large;
+}
+
+.font-large {
+  font-size: $large;
+}
+
+.font-medium {
   font-size: $medium;
 }
 
-pre {
+.font-small {
+  font-size: $small;
+}
+
+.font-x-small {
   font-size: $x-small;
 }
 
-label {
+.font-xx-small {
   font-size: $xx-small;
+}
+
+.font-roboto {
+  font-family: "Roboto Slab", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+.font-titillium {
+  font-family: 'Titillium Web', sans-serif;
 }

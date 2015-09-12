@@ -1,66 +1,66 @@
 // Mixins!
 
 @mixin collapse-color-theme($color_name, $color_type, $color_value) {
-  @if $color_type == "base" {
-    .collapse.#{$color_name} section label,
-    .collapse section label.#{$color_name} {
-      color: darken($color_value, 30%);
-      background-color: $color_value;
-    }
-    .collapse.#{$color_name} section label:hover,
-    .collapse section label.#{$color_name}:hover {
-      background-color: rgba($color_value, .3);
-    }
-    .collapse.#{$color_name} section label:active,
-    .collapse section label.#{$color_name}:active {
-      background-color: rgba($color_value, .5);
-      @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
-    }
-    .collapse.#{$color_name} section input[type=checkbox] + label:hover,
-    .collapse.#{$color_name} section input[type=radio] + label:hover,
-    .collapse section input[type=checkbox] + label.#{$color_name}:hover,
-    .collapse section input[type=radio] + label.#{$color_name}:hover {
-      color: darken($color_value, 30%);
-      background-color: rgba($color_value, .3);
-      @include text-shadow(0 1px 1px $text-shadow-color);
-    }
-    .collapse.#{$color_name} section input[type=checkbox] ~ i,
-    .collapse.#{$color_name} section input[type=radio] ~ i,
-    .collapse section input[type=checkbox] + label.#{$color_name} ~ i,
-    .collapse section input[type=radio] + label.#{$color_name} ~ i {
-      &:before, &:after {
-        background-color: darken($color_value, 30%);
+  .collapse {
+    @if $color_type == "base" {
+      &.#{$color_name} section label, section label.#{$color_name} {
+        color: darken($color_value, 30%);
+        background-color: $color_value;
+        &:hover {
+          background-color: rgba($color_value, .3);
+        }
+        &:active {
+          background-color: rgba($color_value, .5);
+          @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+        }
       }
-    }
-  } @else {
-    .collapse.#{$color_name}.#{$color_type} section label,
-    .collapse section label.#{$color_name}.#{$color_type} {
-      color: darken($color_value, 30%);
-      background-color: $color_value;
-    }
-    .collapse.#{$color_name}.#{$color_type} section label:hover,
-    .collapse section label.#{$color_name}.#{$color_type}:hover {
-      background-color: rgba($color_value, .3);
-    }
-    .collapse.#{$color_name}.#{$color_type} section label:active,
-    .collapse section label.#{$color_name}.#{$color_type}:active {
-      background-color: rgba($color_value, .5);
-      @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
-    }
-    .collapse.#{$color_name}.#{$color_type} section input[type=checkbox] + label:hover,
-    .collapse.#{$color_name}.#{$color_type} section input[type=radio] + label:hover,
-    .collapse section input[type=checkbox] + label.#{$color_name}.#{$color_type}:hover,
-    .collapse section input[type=radio] + label.#{$color_name}.#{$color_type}:hover {
-      color: darken($color_value, 30%);
-      background-color: rgba($color_value, .3);
-      @include text-shadow(0 1px 1px $text-shadow-color);
-    }
-    .collapse.#{$color_name}.#{$color_type} section input[type=checkbox] ~ i,
-    .collapse.#{$color_name}.#{$color_type} section input[type=radio] ~ i,
-    .collapse section input[type=checkbox] + label.#{$color_name}.#{$color_type} ~ i,
-    .collapse section input[type=radio] + label.#{$color_name}.#{$color_type} ~ i {
-      &:before, &:after {
-        background-color: darken($color_value, 30%);
+      &.#{$color_name} section input[type=checkbox] + label:hover,
+      &.#{$color_name} section input[type=radio] + label:hover,
+      section input[type=checkbox] + label.#{$color_name}:hover,
+      section input[type=radio] + label.#{$color_name}:hover {
+        color: darken($color_value, 30%);
+        background-color: rgba($color_value, .3);
+        @include text-shadow(0 1px 1px $text-shadow-color);
+      }
+
+      &.#{$color_name} section input[type=checkbox] ~ i,
+      &.#{$color_name} section input[type=radio] ~ i,
+      section input[type=checkbox] + label.#{$color_name} ~ i,
+      section input[type=radio] + label.#{$color_name} ~ i {
+        &:before, &:after {
+          background-color: darken($color_value, 30%);
+        }
+      }
+
+    } @else {
+
+      &.#{$color_name}.#{$color_type} section label, section label.#{$color_name}.#{$color_type} {
+        color: darken($color_value, 30%);
+        background-color: $color_value;
+        &:hover {
+          background-color: rgba($color_value, .3);
+        }
+        &:active {
+          background-color: rgba($color_value, .5);
+          @include box-shadow(inset 0 0 10px 0 $box-shadow-color)
+        }
+      }
+      &.#{$color_name}.#{$color_type} section input[type=checkbox] + label:hover,
+      &.#{$color_name}.#{$color_type} section input[type=radio] + label:hover,
+      section input[type=checkbox] + label.#{$color_name}.#{$color_type}:hover,
+      section input[type=radio] + label.#{$color_name}.#{$color_type}:hover {
+        color: darken($color_value, 30%);
+        background-color: rgba($color_value, .3);
+        @include text-shadow(0 1px 1px $text-shadow-color);
+      }
+
+      &.#{$color_name}.#{$color_type} section input[type=checkbox] ~ i,
+      &.#{$color_name}.#{$color_type} section input[type=radio] ~ i,
+      section input[type=checkbox] + label.#{$color_name}.#{$color_type} ~ i,
+      section input[type=radio] + label.#{$color_name}.#{$color_type} ~ i {
+        &:before, &:after {
+          background-color: darken($color_value, 30%);
+        }
       }
     }
   }
@@ -76,6 +76,7 @@
     position: relative;
     @include box-shadow(0 0 0 1px $box-shadow-color);
     label {
+      font-size: $x-small;
       padding: 5px 20px;
       position: relative;
       display: block;

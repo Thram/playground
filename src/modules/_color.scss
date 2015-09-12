@@ -29,6 +29,7 @@
       @include list-color-theme($color_name, $color_type, $color_value);
       @include menu-color-theme($color_name, $color_type, $color_value);
       @include table-color-theme($color_name, $color_type, $color_value);
+      @include dropdown-color-theme($color_name, $color_type, $color_value);
     }
   }
 }
@@ -38,8 +39,11 @@
   @include color-theme($color, "base", $color_value);
   @include tab-color-theme($color, "base", $color_value);
   @include list-color-theme($color, "base", $color_value);
+  @include collapse-color-theme($color, "base", $color_value);
   @include menu-color-theme($color, "base", $color_value);
   @include table-color-theme($color, "base", $color_value);
+  @include dropdown-color-theme($color, "base", $color_value);
+
 }
 
 

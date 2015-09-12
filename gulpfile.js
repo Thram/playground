@@ -43,6 +43,18 @@ gulp.task('compass', function () {
         .pipe(gulp.dest('dist'));
 });
 
+
+//var autoprefixer = require('gulp-autoprefixer');
+//
+//gulp.task('default', function () {
+//    return gulp.src('src/app.css')
+//        .pipe(autoprefixer({
+//            browsers: ['last 2 versions'],
+//            cascade: false
+//        }))
+//        .pipe(gulp.dest('dist'));
+//});
+
 gulp.task('fonts', function () {
     gulp.src('src/fonts/*')
         .pipe(gulp.dest('dist/fonts'));
